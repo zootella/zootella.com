@@ -1,0 +1,15 @@
+notes v7
+
+Here are some notes in a text file.
+The goal is to have the page read them into script.
+
+That would be really awesome if it were somehow possible.
+
+And, it seems to not be.
+Works fine when on a server, but with file:/// you're getting this:
+
+> f2.contentWindow.document
+VM322:1 Uncaught DOMException: Blocked a frame with origin "null" from accessing a cross-origin frame.
+    at <anonymous>:1:18
+
+So that's too bad. :(

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>iframe attempt</title>
+</head>
+<body>
+<h1>iframe attempt v7</h1>
+<iframe id="frame2" onload="loaded()" src="notes.txt" width="100%" height="250"></iframe>
+<script>
+
+var f2 = document.getElementById("frame2");
+
+function loaded() {
+	console.log("loaded!");
+
+	try {
+
+		var s2 = f2.contentDocument.getElementsByTagName("body")[0].getElementsByTagName("pre")[0].innerHTML;
+
+		console.log(s2);
+	} catch (e) {
+		console.log(e);
+		console.log("To really see the error, try this:");
+		console.log("> f2.contentWindow.document");
+	}
+}
+
+</script>
+</body>
+</html>

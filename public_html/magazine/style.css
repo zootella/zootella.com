@@ -1,0 +1,20 @@
+
+.router-link-active {
+	color: red;
+}
+
+.ghosted {
+	color: gray;
+}
+
+.box {
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+
+code {
+	display: block;
+	white-space: pre-wrap; 
+}
+
+

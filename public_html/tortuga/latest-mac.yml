@@ -1,0 +1,12 @@
+version: 1.0.3
+files:
+  - url: Tortuga-1.0.3-mac.zip
+    sha512: mkOt3Z9IHcdWVsMhZY8OjGHvaS4+EYVfBMvTohAkQL2gpJHa5Bx+tHfz7GIrJD4J+mPGiUOtlqHQuTchStTNpQ==
+    size: 63970385
+    blockMapSize: 66925
+  - url: Tortuga-1.0.3.dmg
+    sha512: 5UoT7QKQtzJBzePFYJCFbqO49RYv1v5x1bDvULTJM3qtUa18CpHoihSztiGbY8e0UHR24tyhhlLlzrIYQZqoZA==
+    size: 66073931
+path: Tortuga-1.0.3-mac.zip
+sha512: mkOt3Z9IHcdWVsMhZY8OjGHvaS4+EYVfBMvTohAkQL2gpJHa5Bx+tHfz7GIrJD4J+mPGiUOtlqHQuTchStTNpQ==
+releaseDate: '2020-01-28T18:49:24.172Z'

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>magazine</title>
+		<!--
+		 ____________________
+		| |magazine        | |
+		|.|________________|H|
+		| |A_static_site___| |
+		| |generator_for___| |
+		| |the_decentral___| |
+		| |ized web._______| |
+		| |________________| |
+		|                    |
+		|    ____________    |
+		|   |   |  _     |   |
+		|   |   | | |    |   |
+		|   |   | |_|    | V |
+		|___|___|________|___|
+
+		Welcome to the *View, Source* of this website made with magazine!
+		You can see and change all the code and content; there's no webpack or Babel here
+		Double-click index.html to browse your site with file://
+		Then upload whenever you want, but unlike the other guys, there's no server required!
+		-->
+		<script> var timeLaunched = Date.now(); </script>
+		<!--
+		First, we'll bring in some JavaScript libraries that magazine uses:
+
+		Vue builds the page from HTML templates we define, and changes them really fast
+		Vue Router makes it look like you've clicked to a new page when actually Vue just changed the page
+		npmjs.com/package/vue        | github.com/vuejs/vue        | vuejs.org
+		npmjs.com/package/vue-router | github.com/vuejs/vue-router | router.vuejs.org
+		-->
+		<script src="libraries/vue-dev.js"></script><!-- vue-dev.js for development, vue.js to release -->
+		<script src="libraries/vue-router.js"></script>
+		<!--
+		Moment.js parses and displays dates and times
+		npmjs.com/package/moment | github.com/moment/moment | momentjs.com
+		-->
+		<script src="libraries/moment.js"></script><!-- moment.js for development, moment.min.js to release -->
+		<!--
+		YAML is the language for front matter in content.js, and js-yaml uses esprima
+		npmjs.com/package/js-yaml | github.com/nodeca/js-yaml | nodeca.github.io/js-yaml
+		npmjs.com/package/esprima | github.com/jquery/esprima | esprima.org
+		-->
+		<script src="libraries/esprima.js"></script>
+		<script src="libraries/js-yaml.js"></script>
+		<!--
+		Markdown is the human *and* machine-readable format for page content and blog entries
+		highlight.js colors code blocks in the page with syntax highlighting
+		npmjs.com/package/markdown-it  | github.com/markdown-it/markdown-it  | markdown-it.github.io
+		npmjs.com/package/highlight.js | github.com/highlightjs/highlight.js | highlightjs.org
+		-->
+		<script src="libraries/markdown-it.js"></script>
+		<script src="libraries/highlight.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="libraries/highlight.min.css"/>
+
+		<!-- Our own CSS file, TODO figure out themes -->
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<!-- The only thing on the page is a div called app, and inside is what Vue Router puts there -->
+		<div id="app"><router-view/></div>
+
+		<!-- Embed the script we've organized into these separate files -->
+		<script src="utility.js"></script><!-- Useful utility fucntions -->
+		<script src="tags.js"></script><!-- HTML components to put on the page -->
+		<script src="app.js"></script><!-- Magazine application logic -->
+		<script src="scratchpad1.js"></script><!-- A scratchpad for new code -->
+		<script src="scratchpad2.js"></script>
+		<script src="scratchpad3.js"></script>
+		<script src="content.js"></script><!-- All the site content, like blog entries -->
+		<script src="test.js"></script><!-- Unit tests to make sure the code works -->
+		<script>
+
+			// Map routes from the browser location to the Vue component to show
+			var routes = [
+				{ path: "/",               component: HomeTag     }, // Front page of the site
+				{ path: "/edit/about",     component: AboutTag    }, // Magazine info and settings
+				{ path: "/edit/settings",  component: SettingsTag },
+				{ path: "/edit/themes",    component: ThemesTag   },
+				{ path: "/edit/snippet",   component: SnippetTag  },
+				{ path: "/edit/errors",    component: ErrorsTag   },
+				{ path: "/edit",           component: EditTag     },
+				{ path: "/blog/:id1/:id2", component: BlogTag     }, // Blog
+				{ path: "/file/*",         component: FileTag     }, // Media files gallery
+				{ path: "/view/*",         component: PreviewTag  },
+				{ path: "/sitemap",        component: SitemapTag  }, // Site map of all content and files
+				{ path: "/*",              component: PageTag     }, // Pages you define
+				{ path: "*",               component: NotFoundTag }  // Everything else goes to Not Found
+			];
+
+			// Hook up VueRouter and Vue to be in charge of putting HTML on the page
+			var router = new VueRouter({ routes });
+			var app = new Vue({ router }).$mount("#app");
+
+			// Notice if things are loading slower than we'd like
+			var timeLoaded = Date.now();
+			log("magazine loaded in " + (timeLoaded - timeLaunched) + "ms");//TODO also to the footer and errors page
+		</script>
+	</body>
+</html>
