@@ -4,7 +4,7 @@
   "description": "Static website [zootella.com](https://zootella.com/) hosted on [Cloudflare Pages](https://pages.cloudflare.com/).",
   "main": "index.js",
   "scripts": {
-    "pages:deploy": "wrangler pages deploy ./public_html --project-name zootella.com"
+    "pages:deploy": "wrangler pages deploy ./public_html --project-name zootella-com"
   },
   "repository": {
     "type": "git",
